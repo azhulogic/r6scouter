@@ -64,5 +64,5 @@ $HMO nextgame - pulls up our next match on Battlefy")
         print(message.content)
         await message.channel.send('yeg')      
     
-client.run('NjM4MTIxNzA3NTUwNTM5Nzc4.Xbj7OA.ndXK5KL6TmEL00_4csQfaVXdwG8')
+client.run('')
 
