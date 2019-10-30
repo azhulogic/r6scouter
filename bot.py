@@ -9,6 +9,7 @@ gamelink ='https://battlefy.com/collegiater6-collegiate-rainbow-six-siege/colleg
 @client.event
 async def on_ready():
     print('Logged in as {0.user}'.format(client))
+
 @client.event
 
 #prevents bot from reading it's own messages
@@ -26,6 +27,7 @@ $HMO lookup [UserName] - will lookup a player's siege stats\n \
 $HMO scout - pulls up Piv's scouting sheet.\n\
 $HMO nextgame - pulls up our next match on Battlefy")
 
+ 
 #Stat Lookup Command
     if message.content.startswith('$HMO lookup'):
         print('Looking up a user')
@@ -37,6 +39,7 @@ $HMO nextgame - pulls up our next match on Battlefy")
         player.getTabData()
         await message.channel.send("I wish I had a way of showing these stats but trust me they're great")
 
+   
 #gamestats command
     if message.content.startswith('$HMO scout'):
         print('pulling up game stats')
@@ -48,10 +51,18 @@ $HMO nextgame - pulls up our next match on Battlefy")
         print('pulling up our next game')
         await message.channel.send('pulling up the next CR6 match')
         await message.channel.send(gamelink)
-        
+ 
 #yeg
-    if message.content.startswith('yeg'):
+    if 'yeg' in message.content:
+        print(message.author)
         print('somebody said yeg')
+        print(message.content)
         await message.channel.send('yeg')
-client.run('client code')
+    if 'Yeg' in message.content:
+        print(message.author)
+        print('somebody said yeg')
+        print(message.content)
+        await message.channel.send('yeg')      
+    
+client.run('NjM4MTIxNzA3NTUwNTM5Nzc4.Xbj7OA.ndXK5KL6TmEL00_4csQfaVXdwG8')
 
