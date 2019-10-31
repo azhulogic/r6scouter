@@ -14,6 +14,7 @@ ranks = {
     "16": "Gold I",
     "15": "Gold II",
     "14": "Gold III",
+    "13": "Gold IV", #archaic
     #let's not even consider stuff below
 }
 
@@ -23,7 +24,7 @@ class playerClass(object):
         self.name = name
 
     def setPlayerName(self, name):
-        #sets player name (i.e. in case constructed incorrectly)
+        #sets player name
         self.name = name
 
     def getPlayerID(self):
@@ -46,11 +47,11 @@ class playerClass(object):
             if response.status_code == 200:
                 content = json.loads(response.content.decode('utf-8'))
 
-                #TODO: display formatted json, delete l8er
-                print(json.dumps(content, indent=4, sort_keys=True))
+                #testing: display formatted json, delete l8er
+                #print(json.dumps(content, indent=4, sort_keys=True))
 
                 #for now just load all the info into this var for breakdown
-                #maybe streamline later
+                #maybe streamline later,
                 self.playerData = content
                 return
         else:
@@ -59,7 +60,8 @@ class playerClass(object):
 
 
 
-    def setStats(self, rank, seasKD, seasWL, ovrKD, ovrWL):
+    def setStats(self):
+        #TODO: fix WL and KD
         #sets all pertinent stats into local vars
         #current season (Ember Rise) is season14
         if self.playerData:
@@ -76,7 +78,7 @@ class playerClass(object):
             #overall KD & WL
             self.ovrKD = data["kd"]
             self.ovrWL = data["data"][21]/(data["data"][21]+data["data"][22])
-            
+
             #TODO: the rest of these
             # self.playerData["favattacker"]
             # self.playerData["favdefender"]
@@ -89,3 +91,11 @@ class playerClass(object):
 player = playerClass("SirPivinton")
 player.getPlayerID()
 player.getTabData()
+player.setStats()
+
+print(player.seasMMR)
+print(ranks[str(player.seasRank)])
+print(player.seasKD)
+print(player.seasWL)
+print(player.ovrKD / 100)
+print(player.ovrWL)
