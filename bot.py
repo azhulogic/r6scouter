@@ -1,6 +1,7 @@
 import discord
 import main
 import ball
+from main import ranks
 
 def truncate(n, decimals=0):
     multiplier = 10 ** decimals
@@ -52,7 +53,7 @@ Rank is: {} \n\
 KD this season is: {} \n\
 WL this season is: {} \n\
 Overall KD is: {} \n\
-Overall WL is: {}'.format(player.seasMMR, player.seasRank, truncate(player.seasKD, 2), truncate(player.seasWL, 2), truncate((player.ovrKD / 100), 2), truncate(player.ovrWL, 2)))
+Overall WL is: {}'.format(player.seasMMR, ranks[str(player.seasRank)], truncate(player.seasKD, 2), truncate(player.seasWL, 2), truncate((player.ovrKD / 100), 2), truncate(player.ovrWL, 2)))
 
    
 #gamestats command
@@ -82,6 +83,6 @@ Overall WL is: {}'.format(player.seasMMR, player.seasRank, truncate(player.seasK
 #        print('consulting with $HMOBOT')
 #        response = ball.gen
 #        await message.channel.send(response)
-        
+               
 client.run('client code')
 
