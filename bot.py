@@ -83,5 +83,5 @@ Overall WL is: {}'.format(player.seasMMR, player.seasRank, truncate(player.seasK
 #        response = ball.gen
 #        await message.channel.send(response)
         
-client.run('NjM4MTIxNzA3NTUwNTM5Nzc4.XbkGVQ.vuuuYGzzR5Fa-M730J2Lp4bb7dM')
+client.run('client code')
 
